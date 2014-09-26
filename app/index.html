@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"  class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="app.css"/>
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body >
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+
+<div ng-app="myApp" ng-controller="vendingMachineController" class="my-app" style="margin-left:20px">
+
+<style>
+input[type=button] {
+	margin-right:10px;
+	width:50px;
+}
+</style>
+
+<h1>Unhealthy drinks &amp; snacks!</h1>
+
+<p>
+Please insert coin :
+</p>
+<p>
+<input type="button" value="€2" ng-click="insertCoin(2)"></input>
+<input type="button" value="€1" ng-click="insertCoin(1)"></input>
+<input type="button" value="50c" ng-click="insertCoin(0.5)"></input>
+</p>
+<p>
+<input type="button" value="20c" ng-click="insertCoin(0.2)"></input>
+<input type="button" value="10c" ng-click="insertCoin(0.1)"></input>
+<input type="button" value="5c" ng-click="insertCoin(0.05)"></input>
+</p>
+
+<p>
+<input id="credit" type="text" readonly value="{{credit | currency:'&euro;'}}"></input>
+<input type="button" ng-click="dispenseChange()" value="Change" style="width:100px"></input>
+</p>
+
+<p>
+<input id="status" type="text" readonly value="{{status}}"></input>
+</p>
+
+1: Coke - 80c<br/>
+2: Pepsi - 90c<br/>
+3: Candy bar - €1.20<br/>
+4: Lollipops - €1<br/>
+5: Jelly beans - €1.50<br/>
+
+<p>
+<input type="button" value="1" ng-click="selectSlot(0)"></input>
+<input type="button" value="2" ng-click="selectSlot(1)"></input>
+<input type="button" value="3" ng-click="selectSlot(2)"></input>
+</p>
+<p>
+<input type="button" value="4" ng-click="selectSlot(3)"></input>
+<input type="button" value="5" ng-click="selectSlot(4)"></input>
+<input type="button" value="6" ng-click="selectSlot(5)"></input>
+</p>
+<p>
+<input type="button" value="7" ng-click="selectSlot(6)"></input>
+<input type="button" value="8" ng-click="selectSlot(7)"></input>
+<input type="button" value="9" ng-click="selectSlot(8)"></input>
+</p>
+<p>
+<input type="button" value="0" style="visibility: hidden;"></input>
+<input type="button" value="0" ng-click="selectSlot(9)"></input>
+</p>
+
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
